@@ -27,7 +27,7 @@ jobs:
 
       - name: Install packages and build website
         run: |
-          npm install
+          npm install--legacy-peer-deps
           npm run build
 
       - name: Setup GitHub Pages
