@@ -1,4 +1,4 @@
-name: bamzam
+name: Deploy Portfolio
 
 on:
   push:
@@ -27,7 +27,7 @@ jobs:
 
       - name: Install packages and build website
         run: |
-          npm install--legacy-peer-deps
+          npm install --legacy-peer-deps
           npm run build
 
       - name: Setup GitHub Pages
