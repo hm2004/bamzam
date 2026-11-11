@@ -1,0 +1,273 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+
+  /* Core Canvas */
+  --bg: #FDFCF7;
+  --bg-pattern: #0000000d;
+  --surface: #FFFFFF;
+  --surface-alt: #F4F1EA;
+  --surface-contrast: #000000;
+
+  /* Text */
+  --text: #121212;
+  --text-muted: #333333;
+  --text-soft: #666666;
+  --text-inverse: #FFFFFF;
+
+  /* Borders & Shadows */
+  --border-color: #000000;
+  --border-width: 3px;
+  --border-style: solid;
+  --border: var(--border-width) var(--border-style) var(--border-color);
+  --border-thick: 4px solid var(--border-color);
+  --border-light: 2px solid var(--border-color);
+
+  --shadow-color: #000000;
+  --shadow-xs: 2px 2px 0px var(--shadow-color);
+  --shadow-sm: 4px 4px 0px var(--shadow-color);
+  --shadow-md: 6px 6px 0px var(--shadow-color);
+  --shadow-lg: 9px 9px 0px var(--shadow-color);
+  --shadow-xl: 12px 12px 0px var(--shadow-color);
+
+  /* Neo-Brutalist Colors */
+  --neo-yellow: #FFE600;
+  --neo-yellow-light: #FFF275;
+  --neo-cyan: #4DEEEA;
+  --neo-cyan-light: #A3F9F6;
+  --neo-pink: #FF66C4;
+  --neo-pink-light: #FFA6DE;
+  --neo-green: #38EF7D;
+  --neo-green-light: #8EFAC0;
+  --neo-purple: #B288FD;
+  --neo-purple-light: #D5BFFD;
+  --neo-orange: #FF9F45;
+  --neo-orange-light: #FFCA99;
+  --neo-blue: #54A0FF;
+
+  /* Radii */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* Fonts */
+  --font-display: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Space Mono", monospace;
+  --font-body: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Dark Cyber-Brutalism */
+  --bg: #111116;
+  --bg-pattern: #ffffff12;
+  --surface: #1a1a24;
+  --surface-alt: #232330;
+  --surface-contrast: #FFFFFF;
+
+  --text: #F8F9FA;
+  --text-muted: #C5C7D0;
+  --text-soft: #8E92A2;
+  --text-inverse: #121212;
+
+  --border-color: #FFFFFF;
+  --shadow-color: #000000;
+
+  --shadow-xs: 2px 2px 0px #000000;
+  --shadow-sm: 4px 4px 0px #000000;
+  --shadow-md: 6px 6px 0px #000000;
+  --shadow-lg: 8px 8px 0px #000000;
+  --shadow-xl: 12px 12px 0px #000000;
+
+  --neo-yellow: #FFEA00;
+  --neo-cyan: #00F0FF;
+  --neo-pink: #FF2E93;
+  --neo-green: #00FF87;
+  --neo-purple: #9D4EDD;
+  --neo-orange: #FF8500;
+  --neo-blue: #00B4D8;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(var(--bg-pattern) 1.5px, transparent 1.5px),
+    linear-gradient(to right, var(--bg-pattern) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--bg-pattern) 1px, transparent 1px);
+  background-size: 24px 24px, 120px 120px, 120px 120px;
+  background-position: 0 0, 0 0, 0 0;
+  transition: background-color 200ms ease, color 200ms ease;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-alt);
+  border-left: 2px solid var(--border-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neo-yellow);
+  border: 2px solid var(--border-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neo-pink);
+}
+
+/* Typography Helpers */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-code {
+  font-family: var(--font-mono);
+}
+
+/* Neo-Brutalist Box Shadow Utility Classes */
+.neo-box {
+  background-color: var(--surface);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-md);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.neo-box:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.neo-box-sm {
+  background-color: var(--surface);
+  border: var(--border);
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-sm);
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.neo-box-sm:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-md);
+}
+
+.neo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border: var(--border-thick);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
+  user-select: none;
+}
+
+.neo-btn:hover:not(:disabled) {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-md);
+}
+
+.neo-btn:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px var(--shadow-color);
+}
+
+.neo-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.neo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: var(--border-light);
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadow-xs);
+  padding: 0.2rem 0.6rem;
+}
+
+/* Top Ticker Bar Animation */
+.neo-ticker-track {
+  display: inline-flex;
+  gap: 2rem;
+  animation: tickerLoop 30s linear infinite;
+  white-space: nowrap;
+}
+
+.neo-ticker-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes tickerLoop {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Dot Pulse Animation */
+@keyframes pulseDot {
+  0% { box-shadow: 0 0 0 0 rgba(56, 239, 125, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(56, 239, 125, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(56, 239, 125, 0); }
+}
+
+.pulse-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: var(--neo-green);
+  border-radius: 50%;
+  border: 1.5px solid var(--border-color);
+  animation: pulseDot 2s infinite;
+}
+
+/* Floating Shapes */
+@keyframes floatDeco {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-20px) rotate(14deg); }
+}
+
+@keyframes spinSlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.deco-float-1 {
+  animation: floatDeco 7s ease-in-out infinite alternate;
+}
+
+.deco-float-2 {
+  animation: floatDeco 9s ease-in-out 1.5s infinite alternate-reverse;
+}
+
+.deco-spin {
+  animation: spinSlow 24s linear infinite;
+}
